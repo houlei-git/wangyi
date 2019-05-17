@@ -1,24 +1,29 @@
-// 封装axios + Promise
-// 1). 统一处理请求异常
-// 2). 异常获取的不是response, 而是response.data
-
-import axios from 'axios'
-
-export default function ajax(url,data={},method='GET') {
-  return new Promise((resolve,reject)=>{
-    let promise
-    if (method==='GET'){
-      promise=axios.get(url,{
-        params:data
+/**
+ * 封装用于发送ajax请求的函数模块
+ * 返回值为一promise对象
+ * 包装axios
+ * 自己封装ajax的目的：
+ *    1.能够得到异步执行的response的data
+ *    2.统一管理请求失败的状态
+ */
+import axios from 'axios';
+export default function ajax (url, data = {}, method = 'GET') {
+  return new Promise((resolve, reject) => {
+    let promise;
+    if (method === 'GET') {
+      promise = axios.get(url, {
+        params: data
       })
-    }else {
-      promise=axios.post(url,data)
+    } else {
+      promise = axios.post(url, data);
     }
-    // 请求成功, 调用resolve(response.data)
-    promise.then(response=>{
-      resolve(response.data)
-    }).catch(error=>{   //请求出错
-      alert('请求出错'+error.message)
-    })
-  })
+    promise
+      .then(response => {
+        console.log('请求成功');
+        resolve(response.data);
+      })
+      .catch(error => {
+        alert('请求失败' + error.msg);
+      })
+  });
 }

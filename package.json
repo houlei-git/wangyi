@@ -1,5 +1,5 @@
 {
-  "name": "gshop",
+  "name": "wangyi",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "zxfjd3g <258147149@qq.com>",
@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "better-scroll": "^1.15.2",
+    "lib-flexible": "^0.3.2",
     "mockjs": "^1.0.1-beta3",
+    "px2rem-loader": "^0.1.9",
     "vue": "^2.5.2"
   },
   "devDependencies": {

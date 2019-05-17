@@ -1,70 +1,90 @@
 <template>
-  <div id="Footer" >
-    <router-link :to="">
-      <span class="item">
-      <i></i>
-      <span>首页</span>
-    </span>
-    </router-link>
-    <span class="item">
-      <i></i>
-      <span>分类</span>
-    </span>
-    <span class="item">
-      <i></i>
-      <span>识物</span>
-    </span>
-    <span class="item">
-      <i></i>
-      <span>购物车</span>
-    </span>
-    <span class="item">
-      <i></i>
-      <span>个人</span>
-    </span>
-  </div>
+    <ul id="footerList">
+      <li @click="goto('/home')" :class="{active: $route.path === '/home'}">
+        <div>
+          <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
+        </div>
+        <span>首页</span>
+      </li>
+      <li @click="goto('/classify')" :class="{active: $route.path === '/classify'}">
+        <div>
+          <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
+        </div>
+        <span>分类</span>
+      </li>
+      <li @click="goto('/topic')" :class="{active: $route.path === '/topic'}">
+        <div>
+          <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
+        </div>
+        <span>识物</span>
+      </li>
+      <li @click="goto('/cart')" :class="{active: $route.path === '/cart'}">
+        <div>
+          <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
+        </div>
+        <span>购物车</span>
+      </li>
+      <li @click="goto('/personal')" :class="{active: $route.path === '/personal'}">
+        <div>
+          <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
+        </div>
+        <span>个人</span>
+      </li>
+    </ul>
 </template>
-
-<script type="text/ecmascript-6">
+<script>
   export default {
-    name: '',
-    data () {
-      return {}
-    },
+    methods: {
+      goto (path) {
+        this.$router.replace(path);
+      }
+    }
   }
 </script>
-
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  #Footer
+  #footerList
     width 100%
     height 100px
-    border-top 1px solid #d9d9d9
-    font-size 25px
     position fixed
     left 0
     bottom 0
     display flex
     justify-content space-around
-    align-items  center
-    .item
-      color #666
-      text-align center
-      i
-        display block
+    border-top 1px solid #d9d9d9
+    li
+      display flex
+      flex-direction column
+      justify-content space-around
+      align-items center
+      div
         width 40px
         height 40px
-        vertical-align middle
-        margin 0 auto
-        background-image url("./images/wangyi.png")
-        background-repeat no-repeat
-      &:nth-child(1) i
-        background-position 0 -200px
-      &:nth-child(2) i
-        background-position 0 -150px
-      &:nth-child(3) i
-        background-position 0 -350px
-      &:nth-child(4) i
-        background-position 0 -50px
-      &:nth-child(5) i
-        background-position 0 -450px
+        position relative
+        overflow hidden
+        margin-bottom -23px
+        img
+          position absolute
+          left 0
+          top 0
+          width 40px
+          height 490px
+      &:nth-child(1)
+        img
+          top -250px
+      &:nth-child(2)
+        img
+          top -150px
+      &:nth-child(3)
+        img
+          top -350px
+      &:nth-child(4)
+        img
+          top -50px
+      &:nth-child(5)
+        img
+          top -450px
+      &.active
+        color #b4282d
+        img
+          transform translateY(50px)
 </style>
