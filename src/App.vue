@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <Footer></Footer>
+    <Footer v-show="$route.meta.isShow"/>
   </div>
 </template>
 
@@ -10,10 +10,10 @@ import Footer from './components/Footer/Footer.vue'
 
 export default {
   name: 'App',
-//  async mounted(){
-//    // 触发vuex的action调用: 请求后台接口获取address到state中
-//    this.$store.dispatch('getAddress')
-//  },
+  async mounted(){
+   // 触发vuex的action调用: 请求后台接口获取数据到state中
+    this.$store.dispatch('getHomeData')
+  },
   components: {
     Footer
   }

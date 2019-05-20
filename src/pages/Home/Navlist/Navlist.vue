@@ -2,7 +2,7 @@
   <section class="nav-container">
     <ul class="nav-box">
       <li class="nav-item" v-for="(nav, index) in navList" :key="index">
-        <img :src="nav.picUrl" alt="导航列表">
+        <img v-lazy="nav.picUrl" >
         <span>{{nav.text}}</span>
       </li>
     </ul>
@@ -11,6 +11,11 @@
 <script>
   import {mapState} from 'vuex'
   export default {
+    data(){
+      return{
+        isShow:false
+      }
+    },
     computed: {
       ...mapState({
         navList: state => state.home.navList
@@ -21,8 +26,9 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/mixins.styl"
   .nav-container
+    background-color #fff
     padding-bottom 30px
-    background-color #F4F4F4
+    margin-bottom 20px
     .nav-box
       clearFix()
       text-align center
@@ -31,6 +37,13 @@
         width 110px
         height 156px
         margin 10px 20px 9px
+        position relative
+        .loading
+          width 100%
+          height 100%
+          position absolute
+          left 0
+          top 0
         img
           width 110px
           height 110px

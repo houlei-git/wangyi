@@ -45,6 +45,7 @@
   #footerList
     width 100%
     height 100px
+    background-color #fff
     position fixed
     left 0
     bottom 0

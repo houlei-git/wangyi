@@ -36,7 +36,7 @@
         new Swiper('.swiper-container', {
           direction: 'horizontal',
           loop: true,
-          autoplay: true, // 自动轮播
+          autoplay: false, // 自动轮播
           speed: 1000,
           pagination: {
             el: '.swiper-pagination',
