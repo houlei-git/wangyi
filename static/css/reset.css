@@ -97,3 +97,8 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+/*清除输入框默认样式*/
+input{
+  -web-kit-appearance:none;
+  -moz-appearance: none;
+}

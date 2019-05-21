@@ -1,47 +1,52 @@
 <template>
-    <div class="Rightlist">
+    <div class="BscrollBox">
       <div class="Bscroll">
-        <!--右侧头部-->
-        <a href="javascript:;" class="R-header">
-          <img :src="subCate.bannerUrl" alt="">
-        </a>
+        <div v-if="tabList.length">
+          <!--右侧头部-->
+          <a href="javascript:;" class="R-header">
+            <img :src='tabList[num].bannerUrl' alt="">
+          </a>
 
-        <ul class="R-list">
-          <li v-for="(item,index) in subCate.subCateList" :key="index">
-            <a href="javascript:;">
-              <img :src='item.bannerUrl' alt="">
-              <span>{{item.name}}</span>
-            </a>
-          </li>
-        </ul>
+          <ul class="R-list">
+            <li v-for="(item,index) in tabList[num].subCateList" :key="index">
+              <a href="javascript:;">
+                <img :src='item.bannerUrl' alt="">
+                <span>{{item.name}}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
+  import {mapState} from 'vuex'
   export default {
     name: 'Rightlist',
     props:{
-      subCate:Object
+      num:Number
     },
     mounted(){
       this.$nextTick(()=>{
-        new BScroll('.Rightlist',{
+        new BScroll('.BscrollBox',{
           click: true,
-          scrollX:true
+          scrollY:true
         })
       })
     },
-    mounted(){
-      
+    computed:{
+      ...mapState({
+        tabList:state => state.navlist.tabList
+      }),
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/mixins.styl"
-  .Rightlist
+  .BscrollBox
     width 588px
     height 1148px
     position absolute

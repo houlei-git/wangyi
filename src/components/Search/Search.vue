@@ -8,11 +8,11 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'Search',
-    methods:{
-      goSearch(path){
-        this.$router.push(path)
-      }
-    }
+//    methods:{
+//      goSearch(path){
+//        this.$router.push(path)
+//      }
+//    }
   }
 </script>
 

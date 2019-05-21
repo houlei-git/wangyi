@@ -10,12 +10,12 @@
       <div class="nav-list">
         <ul>
           <li v-for="(item, index) in tabList" :key="item.id"
-              @click="handleC(item)"
+              @click="handleC(index)" :class="{active:index===num}"
           >{{item.name}}</li>
         </ul>
       </div>
       <!--右侧列表-->
-      <router-view :subCate="subCate"></router-view>
+      <router-view :num="num"></router-view>
       <!--<Rightlist :subCateList="subCateList"/>-->
     </div>
   </div>
@@ -28,7 +28,8 @@
     name: 'Classify',
     data () {
       return {
-        subCate:{}
+        subCate:{},
+        num:0,
       }
     },
     mounted(){
@@ -40,9 +41,9 @@
       }),
     },
     methods:{
-      handleC(item){
-        this.$router.push(`/classify/region/${item.id}`)
-        this.subCate=item
+      handleC(index){
+        this.$router.push(`/classify/region`)
+        this.num=index
       }
     },
     components:{
@@ -73,5 +74,10 @@
         text-align center
         line-height 50px
         margin-bottom 30px
+        box-sizing border-box
+        &.active
+          color #b4282d
+          border-left 4px solid #b4282d
+
 
 </style>

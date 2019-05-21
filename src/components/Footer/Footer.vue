@@ -1,44 +1,44 @@
 <template>
-    <ul id="footerList">
-      <li @click="goto('/home')" :class="{active: $route.path === '/home'}">
+    <div id="footerList">
+      <router-link to="/home">
         <div>
           <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
         </div>
         <span>首页</span>
-      </li>
-      <li @click="goto('/classify')" :class="{active: $route.path === '/classify'}">
+      </router-link>
+      <router-link to="/classify">
         <div>
           <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
         </div>
         <span>分类</span>
-      </li>
-      <li @click="goto('/topic')" :class="{active: $route.path === '/topic'}">
+      </router-link>
+      <router-link to="/topic">
         <div>
           <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
         </div>
         <span>识物</span>
-      </li>
-      <li @click="goto('/cart')" :class="{active: $route.path === '/cart'}">
+      </router-link>
+      <router-link to="/cart">
         <div>
           <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
         </div>
         <span>购物车</span>
-      </li>
-      <li @click="goto('/personal')" :class="{active: $route.path === '/personal'}">
+      </router-link>
+      <router-link to="/personal">
         <div>
           <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/sprites/tabBar-s43a0dc8a7d-de25ef8e19.png" alt="icon">
         </div>
         <span>个人</span>
-      </li>
-    </ul>
+      </router-link>
+    </div>
 </template>
 <script>
   export default {
-    methods: {
-      goto (path) {
-        this.$router.replace(path);
-      }
-    }
+//    methods: {
+//      goto (path) {
+//        this.$router.replace(path);
+//      }
+//    }
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -52,7 +52,7 @@
     display flex
     justify-content space-around
     border-top 1px solid #d9d9d9
-    li
+    a
       display flex
       flex-direction column
       justify-content space-around

@@ -12,7 +12,8 @@ import loading from './common/images/lazy.gif'
 //全局组件
 import Search from './components/Search/Search.vue'
 import Searchpage from './components/Search-page/Search-page.vue'
-
+import Header from './components/Header/Header.vue'
+import Login from './components/Login/Login.vue'
 
 Vue.config.productionTip = false
 
@@ -22,7 +23,8 @@ Vue.use(VueLazyload, {
 //注册全局组件
 Vue.component('Search', Search)
 Vue.component('Searchpage', Searchpage)
-
+Vue.component('Header', Header)
+Vue.component('Login', Login)
 
 new Vue({
   el: '#app',
