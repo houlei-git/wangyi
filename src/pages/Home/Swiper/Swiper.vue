@@ -27,16 +27,15 @@
   </div>
 </template>
 <script>
-  import 'swiper/dist/css/swiper.min.css';
-  import Swiper from 'swiper';
+  import 'swiper/dist/css/swiper.min.css'
+  import Swiper from 'swiper'
   export default {
     methods: {
       _initSwiper () {
-        /* eslint-disable no-new */
         new Swiper('.swiper-container', {
           direction: 'horizontal',
           loop: true,
-          autoplay: false, // 自动轮播
+          autoplay: true, // 自动轮播
           speed: 1000,
           pagination: {
             el: '.swiper-pagination',
@@ -53,7 +52,6 @@
                     '<span class="swiper-pagination-customs"></span>';
                 }
               }
-//              return '<span class="swiperPag">' + customPaginationHtml + '</span>';
               return customPaginationHtml;
             }
           }
@@ -65,7 +63,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   .page
     .swiper-container
-      width 750px
+      width 100%
       height 400px
       img
         width 100%
@@ -75,6 +73,7 @@
         height 4px
         bottom 50px
         .swiper-pagination-customs
+          z-index 88
           width 40px
           height 4px
           display inline-block

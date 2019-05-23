@@ -56,7 +56,8 @@
   .title
     padding 15px 30px
   .content
-    height 1334px
+    height 100%
+    box-sizing border-box
     border-top 3px solid #f5f5f5
     overflow hidden
     position relative
@@ -74,7 +75,8 @@
         text-align center
         line-height 50px
         margin-bottom 30px
-        box-sizing border-box
+
+        border-left 4px solid #FFF
         &.active
           color #b4282d
           border-left 4px solid #b4282d

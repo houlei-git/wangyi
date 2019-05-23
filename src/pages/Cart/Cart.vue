@@ -21,7 +21,7 @@
     <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png" alt="loading">
     <div class="login">
       <span class="add">去说添加点什么吧</span>
-      <div class="btn-login">
+      <div class="btn-login" @click="$router.push('/personal/login')">
         <a href="javascript">登录</a>
       </div>
     </div>

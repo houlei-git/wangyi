@@ -18,7 +18,7 @@
     <div class="homeScroll">
       <div class="home-content">
         <!--轮播图-->
-        <Swiper ref="swiper"/>
+        <Swiper/>
 
         <ul class="sale">
           <li>
@@ -60,7 +60,6 @@
     data () {
       return {}
     },
-
     mounted () {
       this.$nextTick(() => {
         new BScroll('.homeScroll', {
@@ -112,11 +111,10 @@
         line-height 40px
         text-align center
   .homeScroll
-    width 750px
+    width 100%
     height 1234px
     .home-content
       padding-top 148px
-
       background-color #F4F4F4
       .sale
         background-color #fff

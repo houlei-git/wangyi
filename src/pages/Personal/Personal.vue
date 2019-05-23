@@ -14,11 +14,11 @@
           <i class="iconfont icon-phone"></i>
           <span>手机号码登录</span>
         </div>
-        <div class="phone">
+        <div class="phone" @click="goemail">
           <i class="iconfont icon-email"></i>
           <span>邮箱账号登录</span>
         </div>
-        <div class="register">
+        <div class="register" @click="goster" >
           <span>手机号快捷注册</span>
           <i class="iconfont icon-52"></i>
         </div>
@@ -38,23 +38,74 @@
         </div>
       </div>
     </div>
-    <router-view v-else></router-view>
+
+    <router-view v-else="isShow">
+      <div v-if="Phonelogin" slot="up">
+        <div class="code" >
+          <input type="text" placeholder="请输入手机号" class="test">
+        </div>
+        <div class="code" >
+          <input type="text" placeholder="请输入短信验证码" class="test">
+          <div class="gain">获取验证码</div>
+        </div>
+        <div class="help" >
+          <span>遇到问题?</span>
+          <span>使用密码验证登录</span>
+        </div>
+        <div class="register">
+          <span>注册账号</span>
+          <i class="iconfont icon-52"></i>
+        </div>
+      </div>
+
+      <div v-else="Phonelogin" slot="down">
+        <div class="code" >
+          <input type="text" placeholder="邮箱账号" class="test">
+        </div>
+        <div class="code" >
+          <input type="password" placeholder="密码" class="test">
+        </div>
+        <div class="help">
+          <span>遇到问题?</span>
+          <span>使用密码验证登录</span>
+        </div>
+      </div>
+    </router-view>
+
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import PubSub from 'pubsub-js'
   export default {
     name: 'Personal',
     data(){
       return{
-        isShow:true
+        isShow:true,
+        Phonelogin:true
       }
     },
     methods:{
       goLogin(){
         this.$router.push('/personal/login')
         this.isShow=false
+      },
+      goemail(){
+        this.$router.push('/personal/login')
+        this.isShow=false
+        this.Phonelogin=false
+      },
+      goster(){
+        this.$router.push('/personal/Register')
+        this.isShow=false
       }
+    },
+    mounted(){
+      var mySubscriber =  (msg, data)=> {
+        this.Phonelogin = data
+        this.isShow=data
+      }
+      var token = PubSub.subscribe('change', mySubscriber)
     }
   }
 </script>
@@ -118,14 +169,12 @@
           text-align center
           i
             font-size 28px
-
-
         .wx-qq
           font-size 30px
           color #7f7f7f
           display flex
           justify-content space-around
-          margin-top 400px
+          margin-top 450px
           .iconfont
             font-size 40px
           .login-qq
@@ -134,4 +183,41 @@
             text-align center
             border-left 3px solid #7f7f7f
             border-right 3px solid #7f7f7f
+    .code
+      width 100%
+      height 91px
+      border-bottom 1px solid #E9E9E9
+      margin-bottom 10px
+      display flex
+      justify-content space-between
+      align-items center
+      .test
+        font-size 30px
+        height 50px
+      .gain
+        width 168px
+        height 58px
+        text-align center
+        line-height 58px
+        font-size 30px
+        border 1px solid #7f7f7f
+        border-radius 13px
+    .help
+      width 100%
+      height 120px
+      font-size 30px
+      display flex
+      justify-content space-between
+      align-items center
+
+    .register
+      width 100%
+      text-align center
+      font-size 28px
+      position absolute
+      top 760px
+      left 0
+      i
+        font-size 28px
+
 </style>

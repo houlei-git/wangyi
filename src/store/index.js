@@ -4,6 +4,7 @@ import actions from './actions';
 import getters from './getters';
 import home from './modules/home';
 import navlist from './modules/navlist'
+import topic from './modules/topic'
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     home,
-    navlist
+    navlist,
+    topic
   }
 })

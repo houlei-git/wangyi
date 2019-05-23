@@ -35,7 +35,7 @@
     padding 0 12px
     color #7f7f7f
     background-color #FAFAFA
-    border-bottom 3px solid #E9E9E9
+    border-bottom 3px solid #d7d7d7
     line-height 100px
     position relative
     clearFix()
